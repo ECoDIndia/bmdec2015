@@ -1,0 +1,42 @@
+function(doc) {
+    emit (doc.price, doc._id);
+}
+
+
+https://laksri.cloudant.com/cars/_design/query/_view/price?group=true
+
+
+{"rows":[
+{"key":5400,"value":1},
+{"key":9000,"value":1},
+{"key":10000,"value":1},
+{"key":12000,"value":1},
+{"key":17000,"value":1},
+{"key":20000,"value":1},
+{"key":25000,"value":1}
+]}
+
+
+
+
+======
+
+
+{
+  "_id": "_design/query",
+  "_rev": "11-f072d81bdd0b9efc8e2adb06a40b996f",
+  "views": {
+    "price": {
+      "map": "function(doc) {\n    emit (doc.price, doc._id);\n}\n",
+      "reduce": "_count"
+    },
+    "make": {
+      "reduce": "_count",
+      "map": "function(doc) {\n    emit (doc.make, doc._id);\n}"
+    }
+  },
+  "lists": {
+    "makelist": "function(head, req) {  var row; send('['); send('[\"Make\",\"Count\"]'); var i=0;  while(row = getRow()) { send(','); var rkey=row.key; if (rkey==null) rkey='Data'; send('[\"'+rkey+'\",'+row.value+']'); i++; }send(']');}"
+  },
+  "language": "javascript"
+}

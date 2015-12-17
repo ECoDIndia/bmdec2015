@@ -1,0 +1,12 @@
+https://laksri.cloudant.com/cars/_design/query/_view/price?group=true&startkey=5000&endkey=30000
+
+{"rows":[
+{"key":5400,"value":1},
+{"key":9000,"value":1},
+{"key":10000,"value":1},
+{"key":12000,"value":1},
+{"key":17000,"value":1},
+{"key":20000,"value":1},
+{"key":25000,"value":1}
+]}
+

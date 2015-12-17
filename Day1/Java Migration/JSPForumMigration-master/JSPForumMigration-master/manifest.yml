@@ -1,0 +1,10 @@
+applications:
+- disk_quota: 1024M
+  host: easyforum-sandhya
+  name: EasyForum-Sandhya
+  path: webStarterApp.war
+  domain: mybluemix.net
+  instances: 1
+  memory: 512M
+services:
+ - ForumDB

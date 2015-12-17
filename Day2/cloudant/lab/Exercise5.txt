@@ -1,0 +1,6 @@
+https://laksri.cloudant.com/cars/_design/query/_view/make?group=true&key=%22BMW%22
+
+{"rows":[
+{"key":"BMW","value":2}
+]}
+

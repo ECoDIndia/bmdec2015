@@ -1,0 +1,73 @@
+{
+  "_id": "car1",  
+  "make": "BMW",
+  "model": "M5",
+  "year": "2011",
+  "price": 20000
+}
+	
+{
+  "_id": "car2",
+  "make": "Honda",
+  "model": "Civic",
+  "year": "2014",
+  "price": 12000
+}
+	
+{
+  "_id": "car3",
+  "make": "Honda",
+  "model": "Accord",
+  "year": "2010",
+  "price": 10000
+}
+	
+{
+  "_id": "car4",
+  "make": "Audi",
+  "model": "A3",
+  "year": "2000",
+  "price": 5400
+}
+	
+{
+  "_id": "car5",
+  "make": "Audi",
+  "model": "A4",
+  "year": "2009",
+  "price": 17000
+}
+	
+{
+  "_id": "car6",
+  "make": "BMW",
+  "model": "Z4",
+  "year": "2013",
+  "price": 25000
+}
+	
+{
+  "_id": "car7",
+  "make": "Honda",
+  "model": "Civic",
+  "year": "2009",
+  "price": 9000
+}
+	
+{
+  "_id": "_design/query",
+  "views": {
+    "price": {
+      "map": "function(doc) {\n    emit (doc.price, doc._id);\n}\n",
+      "reduce": "_count"
+    },
+    "make": {
+      "reduce": "_count",
+      "map": "function(doc) {\n    emit (doc.make, doc._id);\n}"
+    }
+  },
+  "lists": {
+    "makelist": "function(head, req) {  var row; send('['); send('[\"Make\",\"Count\"]'); var i=0;  while(row = getRow()) { send(','); var rkey=row.key; if (rkey==null) rkey='Data'; send('[\"'+rkey+'\",'+row.value+']'); i++; }send(']');}"
+  },
+  "language": "javascript"
+}

@@ -1,0 +1,14 @@
+function(doc) {
+    emit (doc.make, doc._id);
+}
+
+_count for reduce
+
+
+https://laksri.cloudant.com/cars/_design/query/_view/make?group=true
+
+{"rows":[
+{"key":"Audi","value":2},
+{"key":"BMW","value":2},
+{"key":"Honda","value":3}
+]}
